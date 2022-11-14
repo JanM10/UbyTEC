@@ -1,43 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using UbyTEC.Models;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace UbyTEC.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Empleados")]
     [ApiController]
     public class EmpleadosController : ControllerBase
     {
-        private static List<Empleados>  LEmpleado = new List<Empleados>
-            {
-                new Empleados {Id = 1,
-                Cedula = 123456789,
-                Nombre = "Juan",
-                Apellido1 = "Juan",
-                Apellido2 = "Juan",
-                Provincia = "San jose",
-                Canton = "San jose",
-                Distrito = "San jose",
-                Telefono1 = 22222222,
-                Telefono2 = 33333333,
-                Usuario = "Juan123",
-                Password = "123Juan"
-                },
-                new Empleados {Id = 2,
-                Cedula = 987654321,
-                Nombre = "Jose",
-                Apellido1 = "Jose",
-                Apellido2 = "Jose",
-                Provincia = "San jose",
-                Canton = "San jose",
-                Distrito = "San jose",
-                Telefono1 = 44444444,
-                Telefono2 = 33333333,
-                Usuario = "Jose123",
-                Password = "123Jose"
-                }
-            };
+ 
         private readonly DataContext _context;
 
         public EmpleadosController(DataContext context)
@@ -45,7 +15,7 @@ namespace UbyTEC.Controllers
             this._context = context;
         }
 
-        // GET: api/<EmpleadosController>
+        // GET: Se muestran los datos obtenidos 
         [HttpGet]
         public async Task<ActionResult<List<Empleados>>> Get()
         {
@@ -53,62 +23,67 @@ namespace UbyTEC.Controllers
             return Ok(await _context.Empleados.ToListAsync());
         }
 
-        // GET: api/<EmpleadosController>
+        // GET: Se muestran los datos obtenidos por ID 
         [HttpGet("{id}")]
         public async Task<ActionResult<List<Empleados>>> Get(int id)
         {
-            var empleados = LEmpleado.Find(h => h.Id == id);
-            if (empleados == null)
+            var dbEmpleados = await _context.Empleados.FindAsync(id);
+            if (dbEmpleados == null)
             {
                 return BadRequest("Empleado no encontrado");
             }
-            return Ok(empleados);
+            return Ok(dbEmpleados);
         }
 
-        // POST api/<EmpleadosController>
+        // POST: Se guardan los datos
         [HttpPost]
         public async Task<ActionResult<List<Empleados>>> Post(Empleados empleados)
         {
-            LEmpleado.Add(empleados);
-            return Ok(LEmpleado);
+            _context.Empleados.Add(empleados);
+            await _context.SaveChangesAsync();
+            return Ok(await _context.Empleados.ToListAsync());
         }
 
-        // PUT api/<EmpleadosController>/5
+        // PUT: Se actualiza los datos
         [HttpPut]
         public async Task<ActionResult<List<Empleados>>> Put(Empleados request)
         {
-            var empleados = LEmpleado.Find(h => h.Id == request.Id);
-            if (empleados == null)
+            var dbEmpleados = await _context.Empleados.FindAsync(request.Id);
+            if (dbEmpleados == null)
             {
                 return BadRequest("Empleado no encontrado");
             }
 
-            empleados.Cedula = request.Cedula;
-            empleados.Nombre = request.Nombre;
-            empleados.Apellido1 = request.Apellido1;
-            empleados.Apellido2 = request.Apellido2;
-            empleados.Provincia = request.Provincia;
-            empleados.Canton = request.Canton;
-            empleados.Distrito = request.Distrito;
-            empleados.Telefono1 = request.Telefono1;
-            empleados.Telefono2 = request.Telefono2;
-            empleados.Usuario = request.Usuario;
-            empleados.Password = request.Password;
+            dbEmpleados.Cedula = request.Cedula;
+            dbEmpleados.Nombre = request.Nombre;
+            dbEmpleados.Apellido1 = request.Apellido1;
+            dbEmpleados.Apellido2 = request.Apellido2;
+            dbEmpleados.Provincia = request.Provincia;
+            dbEmpleados.Canton = request.Canton;
+            dbEmpleados.Distrito = request.Distrito;
+            dbEmpleados.Telefono1 = request.Telefono1;
+            dbEmpleados.Telefono2 = request.Telefono2;
+            dbEmpleados.Usuario = request.Usuario;
+            dbEmpleados.Password = request.Password;
 
-            return Ok(LEmpleado);
+            await _context.SaveChangesAsync();
+
+            return Ok(await _context.Empleados.ToListAsync());
         }
 
-        // DELETE api/<EmpleadosController>/5
+        // DELETE: se elimina un dato
         [HttpDelete("{id}")]
         public async Task<ActionResult<List<Empleados>>> Delete(int id)
         {
-            var empleados = LEmpleado.Find(h => h.Id == id);
-            if (empleados == null)
+            var dbEmpleados = await _context.Empleados.FindAsync(id);
+            if (dbEmpleados == null)
             {
                 return BadRequest("Empleado no encontrado");
             }
-            LEmpleado.Remove(empleados);
-            return Ok(LEmpleado);
+            _context.Empleados.Remove(dbEmpleados);
+            await _context.SaveChangesAsync();  
+
+            return Ok(await _context.Empleados.ToListAsync());
         }
     }
 }
