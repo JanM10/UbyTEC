@@ -1,0 +1,41 @@
+
+/* ############################################################################################## */
+
+
+/*Para la barra superior donde se detalla el nombre de la empresa*/
+.barra {
+    background: #000000;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin: 0;
+}
+/*Titulo de vista*/
+.barra h2{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: right;
+}
+
+.links a{
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 10px;
+}
+.links{
+    background-color:#84bbf3;
+    display: none;
+    width: 150px;
+}
+
+.links a:hover{
+    background-color: #528ecc;
+}
+
+.desplegable:hover .links{
+    display: block;
+}
+/*para que no cambie la posicion del boton*/
+.desplegable{
+    position:relative;
+}
+
