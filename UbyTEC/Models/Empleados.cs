@@ -1,8 +1,10 @@
-﻿namespace UbyTEC.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace UbyTEC.Models
 {
     public class Empleados
     {
-        public int Id { get; set; }
+        [Key]
         public int Cedula { get; set; }
         public string Nombre { get; set; } = string.Empty;
         public string Apellido1 { get; set; } = string.Empty;

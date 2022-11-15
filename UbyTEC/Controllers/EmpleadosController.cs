@@ -12,22 +12,21 @@ namespace UbyTEC.Controllers
 
         public EmpleadosController(DataContext context)
         {
-            this._context = context;
+            _context = context;
         }
 
         // GET: Se muestran los datos obtenidos 
         [HttpGet]
         public async Task<ActionResult<List<Empleados>>> Get()
         {
-
             return Ok(await _context.Empleados.ToListAsync());
         }
 
         // GET: Se muestran los datos obtenidos por ID 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<List<Empleados>>> Get(int id)
+        [HttpGet("{Cedula}")]
+        public async Task<ActionResult<List<Empleados>>> Get(int cedula)
         {
-            var dbEmpleados = await _context.Empleados.FindAsync(id);
+            var dbEmpleados = await _context.Empleados.FindAsync(cedula);
             if (dbEmpleados == null)
             {
                 return BadRequest("Empleado no encontrado");
@@ -48,13 +47,12 @@ namespace UbyTEC.Controllers
         [HttpPut]
         public async Task<ActionResult<List<Empleados>>> Put(Empleados request)
         {
-            var dbEmpleados = await _context.Empleados.FindAsync(request.Id);
+            var dbEmpleados = await _context.Empleados.FindAsync(request.Cedula);
             if (dbEmpleados == null)
             {
                 return BadRequest("Empleado no encontrado");
             }
 
-            dbEmpleados.Cedula = request.Cedula;
             dbEmpleados.Nombre = request.Nombre;
             dbEmpleados.Apellido1 = request.Apellido1;
             dbEmpleados.Apellido2 = request.Apellido2;
@@ -72,10 +70,10 @@ namespace UbyTEC.Controllers
         }
 
         // DELETE: se elimina un dato
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<List<Empleados>>> Delete(int id)
+        [HttpDelete("{Cedula}")]
+        public async Task<ActionResult<List<Empleados>>> Delete(int cedula)
         {
-            var dbEmpleados = await _context.Empleados.FindAsync(id);
+            var dbEmpleados = await _context.Empleados.FindAsync(cedula);
             if (dbEmpleados == null)
             {
                 return BadRequest("Empleado no encontrado");

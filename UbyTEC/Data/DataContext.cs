@@ -8,5 +8,9 @@ namespace UbyTEC.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
         public DbSet<Empleados> Empleados { get; set; }
+
+        public DbSet<Afiliados> Afiliados { get; set; }
+
+        public DbSet<TiposComercio> TiposComercio { get; set; }
     }
 }
