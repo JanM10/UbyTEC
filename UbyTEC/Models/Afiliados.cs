@@ -15,6 +15,6 @@ namespace UbyTEC.Models
         public int Telefono2 { get; set; }
         public string Correo { get; set; } = string.Empty;
         public int Sinpe { get; set; }
-        public string Administrador { get; set; } = string.Empty;
+        public int Administrador { get; set; } //Es int pq se conecta con id_admin con la tabla AdminComercio
     }
 }
