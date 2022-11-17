@@ -18,5 +18,7 @@ namespace UbyTEC.Data
         public DbSet<Productos> Productos { get; set; }
 
         public DbSet<Clientes> Clientes { get; set; }
+
+        public DbSet<AdministradorComercio> AdministradorComercio { get; set; }
     }
 }
