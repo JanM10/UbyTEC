@@ -2,10 +2,10 @@
 
 namespace UbyTEC.Models
 {
-    public class Empleados
+    public class Repartidores
     {
         [Key]
-        public int Cedula { get; set; }
+        public int idRepartidor { get; set; }
         public string Nombre { get; set; } = string.Empty;
         public string Apellido1 { get; set; } = string.Empty;
         public string Apellido2 { get; set; } = string.Empty;
@@ -14,8 +14,8 @@ namespace UbyTEC.Models
         public string Distrito { get; set; } = string.Empty;
         public int Telefono1 { get; set; }
         public int Telefono2 { get; set; }
+        public string Correo { get; set; } = string.Empty;
         public string Usuario { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
-        public string Rol { get; set; } = string.Empty;
     }
 }

@@ -7,7 +7,6 @@ namespace UbyTEC.Controllers
     [ApiController]
     public class EmpleadosController : ControllerBase
     {
- 
         private readonly DataContext _context;
 
         public EmpleadosController(DataContext context)
@@ -63,6 +62,7 @@ namespace UbyTEC.Controllers
             dbEmpleados.Telefono2 = request.Telefono2;
             dbEmpleados.Usuario = request.Usuario;
             dbEmpleados.Password = request.Password;
+            dbEmpleados.Rol = request.Rol;
 
             await _context.SaveChangesAsync();
 

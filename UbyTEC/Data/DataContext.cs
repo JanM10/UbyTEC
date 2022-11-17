@@ -12,5 +12,9 @@ namespace UbyTEC.Data
         public DbSet<Afiliados> Afiliados { get; set; }
 
         public DbSet<TiposComercio> TiposComercio { get; set; }
+
+        public DbSet<Repartidores> Repartidores { get; set; }
+
+        public DbSet<Productos> Productos { get; set; }
     }
 }
