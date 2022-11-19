@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="tablaRegistro">
+        <h2>TABLA DE PEDIDOS REALIZADOS</h2>
+        <button>Actualizar Tabla</button>
+        <!--Creacion de una tabla que muestra los datos de los clientes-->
+        <table class="table table-dark table-striped-columns">
+            <tr>
+                <th>ID Pedido</th>
+                <th>Dirección</th>
+                <th>Productos</th>
+                <th>Numero de Tarjeta</th>
+                <th>Estado</th>
+            </tr>
+            <tr *ngFor="let dataItem of EmpleadoList">modificar esto de acuerdo con los headders de la base de datos--
+                <td>{{dataItem.id}}</td>
+                <td>{{dataItem.direccion}}</td>
+                <td>{{dataItem.productos}}</td>
+                <td>{{dataItem.tarjeta}}</td>
+                <td>{{dataItem.estado}}</td>
+            </tr>
+            <!--En esta parte es donmde se agregan las demas filas--> 
+        </table>
+    </div>
+    
+</body>
+</html>

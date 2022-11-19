@@ -1,64 +1,89 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AddempleadoComponent } from './addempleado/addempleado.component';
+import { UpdateempleadoComponent } from './updateempleado/updateempleado.component';
+import { DeleteempleadoComponent } from './deleteempleado/deleteempleado.component';
+import { ListempleadoComponent } from './listempleado/listempleado.component';
+import { AddadminComponent } from './addadmin/addadmin.component';
+import { UpdateadminComponent } from './updateadmin/updateadmin.component';
+import { DeleteadminComponent } from './deleteadmin/deleteadmin.component';
+import { ListadminComponent } from './listadmin/listadmin.component';
+import { AddafiliadoComponent } from './addafiliado/addafiliado.component';
+import { UpdateafiliadoComponent } from './updateafiliado/updateafiliado.component';
+import { DeleteafiliadoComponent } from './deleteafiliado/deleteafiliado.component';
+import { ListafiliadoComponent } from './listafiliado/listafiliado.component';
+import { AddcomercioComponent } from './addcomercio/addcomercio.component';
+import { UpdatecomercioComponent } from './updatecomercio/updatecomercio.component';
+import { DeletecomercioComponent } from './deletecomercio/deletecomercio.component';
+import { ListcomercioComponent } from './listcomercio/listcomercio.component';
+import { AddproductComponent } from './addproduct/addproduct.component';
+import { UpdateproductComponent } from './updateproduct/updateproduct.component';
+import { DeleteproductComponent } from './deleteproduct/deleteproduct.component';
+import { ListproductComponent } from './listproduct/listproduct.component';
+import { AddrepartidorComponent } from './addrepartidor/addrepartidor.component';
+import { UpdaterepartidorComponent } from './updaterepartidor/updaterepartidor.component';
+import { DeleterepartidorComponent } from './deleterepartidor/deleterepartidor.component';
+import { ListrepartidorComponent } from './listrepartidor/listrepartidor.component';
+import { AddclienteComponent } from './addcliente/addcliente.component';
+import { UpdateclienteComponent } from './updatecliente/updatecliente.component';
+import { DeleteclienteComponent } from './deletecliente/deletecliente.component';
+import { ListclienteComponent } from './listcliente/listcliente.component';
+import { AsignacionComponent } from './asignacion/asignacion.component';
+import { ListpedidosComponent } from './listpedidos/listpedidos.component';
+import { MispedidosComponent } from './mispedidos/mispedidos.component';
+import { CarritoComponent } from './carrito/carrito.component';
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
+import { FormsModule } from '@angular/forms';
 import { SharedService } from './shared.service';
 import { AuthenticationService } from './authentication.service';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PedidosComponent } from './pedidos/pedidos.component';
-import { AsignacionComponent } from './pedidos/asignacion/asignacion.component';
-import { ClientesComponent } from './clientes/clientes.component';
-import { CarritoComponent } from './carrito/carrito.component';
-import { ListaComponent } from './carrito/lista/lista.component';
-import { DeleteEditComponent } from './carrito/delete-edit/delete-edit.component';
-import { MisPedidosComponent } from './mis-pedidos/mis-pedidos.component';
-import { TiposComercioComponent } from './tipos-comercio/tipos-comercio.component';
-import { CreaComComponent } from './tipos-comercio/crea-com/crea-com.component';
-import { EliminaComComponent } from './tipos-comercio/elimina-com/elimina-com.component';
-import { ActualizaComComponent } from './tipos-comercio/actualiza-com/actualiza-com.component';
-import { TablaComComponent } from './tipos-comercio/tabla-com/tabla-com.component';
-import { CreaRepComponent } from './repartidores/crea-rep/crea-rep.component';
-import { EliminaRepComponent } from './repartidores/elimina-rep/elimina-rep.component';
-import { UpdateRepComponent } from './repartidores/update-rep/update-rep.component';
-import { TablaRepComponent } from './repartidores/tabla-rep/tabla-rep.component';
-import { CreaProdComponent } from './productos/crea-prod/crea-prod.component';
-import { EliminaProdComponent } from './productos/elimina-prod/elimina-prod.component';
-import { UpdateProdComponent } from './productos/update-prod/update-prod.component';
-import { TablaProdComponent } from './productos/tabla-prod/tabla-prod.component';
-import { TablaPedidosComponent } from './pedidos/tabla-pedidos/tabla-pedidos.component';
-import { CreaEmplComponent } from './empleados/crea-empl/crea-empl.component';
-import { EliminaEmplComponent } from './empleados/elimina-empl/elimina-empl.component';
-import { UpdateEmplComponent } from './empleados/update-empl/update-empl.component';
-import { TablaEmplComponent } from './empleados/tabla-empl/tabla-empl.component';
-import { CreaClienteComponent } from './clientes/crea-cliente/crea-cliente.component';
-import { EliminaClienteComponent } from './clientes/elimina-cliente/elimina-cliente.component';
-import { UpdateClienteComponent } from './clientes/update-cliente/update-cliente.component';
-import { TablaClienteComponent } from './clientes/tabla-cliente/tabla-cliente.component';
-import { CreaAfiliadoComponent } from './afiliados/crea-afiliado/crea-afiliado.component';
-import { EliminaAfiliadoComponent } from './afiliados/elimina-afiliado/elimina-afiliado.component';
-import { ActualizaAfiliadoComponent } from './afiliados/actualiza-afiliado/actualiza-afiliado.component';
-import { UpdateAfiliadoComponent } from './afiliados/update-afiliado/update-afiliado.component';
-import { TablaAfiliadoComponent } from './afiliados/tabla-afiliado/tabla-afiliado.component';
-import { CreaAdmcoComponent } from './admin-comercio-afiliado/crea-admco/crea-admco.component';
-import { EliminaAdmcoComponent } from './admin-comercio-afiliado/elimina-admco/elimina-admco.component';
-import { UpdateAdmcoComponent } from './admin-comercio-afiliado/update-admco/update-admco.component';
-import { TablaAdmcoComponent } from './admin-comercio-afiliado/tabla-admco/tabla-admco.component';
+import { PagarComponent } from './pagar/pagar.component';
+import { RConsolidadoVentasComponent } from './r-consolidado-ventas/r-consolidado-ventas.component';
+import { RVentasPorClienteComponent } from './r-ventas-por-cliente/r-ventas-por-cliente.component';
 
 @NgModule({
   declarations: [
-    AppComponent, PageNotFoundComponent,InicioSesionComponent,PedidosComponent,
-    AsignacionComponent,ClientesComponent,CarritoComponent,ListaComponent,DeleteEditComponent,
-    MisPedidosComponent,TiposComercioComponent,CreaComComponent,EliminaComComponent,ActualizaComComponent,
-    TablaComComponent,CreaRepComponent,EliminaRepComponent,UpdateRepComponent,TablaRepComponent,
-    CreaProdComponent,EliminaProdComponent,UpdateProdComponent,TablaProdComponent,TablaPedidosComponent,
-    CreaEmplComponent,EliminaEmplComponent,UpdateEmplComponent,TablaEmplComponent,CreaClienteComponent,
-    EliminaClienteComponent,UpdateClienteComponent,TablaClienteComponent,CreaAfiliadoComponent,
-    EliminaAfiliadoComponent,ActualizaAfiliadoComponent,UpdateAfiliadoComponent,TablaAfiliadoComponent,
-    CreaAdmcoComponent,EliminaAdmcoComponent,UpdateAdmcoComponent,TablaAdmcoComponent
+    AppComponent,
+    AddempleadoComponent,
+    UpdateempleadoComponent,
+    DeleteempleadoComponent,
+    ListempleadoComponent,
+    AddadminComponent,
+    UpdateadminComponent,
+    DeleteadminComponent,
+    ListadminComponent,
+    AddafiliadoComponent,
+    UpdateafiliadoComponent,
+    DeleteafiliadoComponent,
+    ListafiliadoComponent,
+    AddcomercioComponent,
+    UpdatecomercioComponent,
+    DeletecomercioComponent,
+    ListcomercioComponent,
+    AddproductComponent,
+    UpdateproductComponent,
+    DeleteproductComponent,
+    ListproductComponent,
+    AddrepartidorComponent,
+    UpdaterepartidorComponent,
+    DeleterepartidorComponent,
+    ListrepartidorComponent,
+    AddclienteComponent,
+    UpdateclienteComponent,
+    DeleteclienteComponent,
+    ListclienteComponent,
+    AsignacionComponent,
+    ListpedidosComponent,
+    MispedidosComponent,
+    CarritoComponent,
+    InicioSesionComponent,
+    PagarComponent,
+    RConsolidadoVentasComponent,
+    RVentasPorClienteComponent
   ],
   imports: [
     BrowserModule,
@@ -67,51 +92,55 @@ import { TablaAdmcoComponent } from './admin-comercio-afiliado/tabla-admco/tabla
     ReactiveFormsModule,
     RouterModule.forRoot([
       /**rutas para mostrar los diferentes componentes de la aplicacion */
-      {path: 'addEmpleado', component: CreaEmplComponent},
-      {path: 'elimEmpleado', component: EliminaEmplComponent},/////
-      {path: 'actEmpleado', component: UpdateEmplComponent},
-      {path: 'tablaEmpleado', component: TablaEmplComponent},
+      {path: 'addEmpleado', component: AddempleadoComponent},
+      {path: 'elimEmpleado', component: DeleteempleadoComponent},/////
+      {path: 'actEmpleado', component: UpdateempleadoComponent},
+      {path: 'tablaEmpleado', component: ListempleadoComponent},
 
-      {path: 'addAdministrador', component: CreaAdmcoComponent},
-      {path: 'elimAdministrador', component: EliminaAdmcoComponent},/////
-      {path: 'actAdministrador', component: UpdateAdmcoComponent},
-      {path: 'tablaAdministrador', component: TablaAdmcoComponent},
+      {path: 'addAdministrador', component: AddadminComponent},
+      {path: 'elimAdministrador', component: DeleteadminComponent},/////
+      {path: 'actAdministrador', component: UpdateadminComponent},
+      {path: 'tablaAdministrador', component: ListadminComponent},
 
-      {path: 'addAfi', component: CreaAfiliadoComponent},
-      {path: 'elimAfi', component: EliminaAfiliadoComponent},/////
-      {path: 'actAfi', component: UpdateAfiliadoComponent},
-      {path: 'tablaAfi', component: TablaAfiliadoComponent},
+      {path: 'addAfi', component: AddafiliadoComponent},
+      {path: 'elimAfi', component: DeleteafiliadoComponent},/////
+      {path: 'actAfi', component: UpdateafiliadoComponent},
+      {path: 'tablaAfi', component: ListafiliadoComponent},
 
-      {path: 'addCliente', component: CreaClienteComponent},
-      {path: 'elimCliente', component: EliminaClienteComponent},///////////
-      {path: 'actCliente', component: UpdateClienteComponent},
-      {path: 'tablaCliente', component: TablaClienteComponent},
+      {path: 'addCliente', component: AddclienteComponent},
+      {path: 'elimCliente', component: DeleteclienteComponent},///////////
+      {path: 'actCliente', component: UpdateclienteComponent},
+      {path: 'tablaCliente', component: ListclienteComponent},
 
-      {path: 'addProd', component: CreaProdComponent},
-      {path: 'elimProd', component: EliminaProdComponent},//////
-      {path: 'actProd', component: UpdateProdComponent},
-      {path: 'tablaProd', component: TablaProdComponent},
+      {path: 'addProd', component: AddproductComponent},
+      {path: 'elimProd', component: DeleteproductComponent},//////
+      {path: 'actProd', component: UpdateproductComponent},
+      {path: 'tablaProd', component: ListproductComponent},
 
-      {path: 'addRep', component: CreaRepComponent},
-      {path: 'elimRep', component: EliminaRepComponent},////////
-      {path: 'actRep', component: UpdateRepComponent},
-      {path: 'tablaRep', component: TablaRepComponent},
+      {path: 'addRep', component: AddrepartidorComponent},
+      {path: 'elimRep', component: DeleterepartidorComponent},////////
+      {path: 'actRep', component: UpdaterepartidorComponent},
+      {path: 'tablaRep', component: ListrepartidorComponent},
 
-      {path: 'addCom', component: CreaComComponent},
-      {path: 'elimCom', component: EliminaComComponent},///////
-      {path: 'actCom', component: ActualizaComComponent},
-      {path: 'tablaCom', component: TablaComComponent},
+      {path: 'addCom', component: AddcomercioComponent},
+      {path: 'elimCom', component: DeletecomercioComponent},///////
+      {path: 'actCom', component: UpdatecomercioComponent},
+      {path: 'tablaCom', component: ListcomercioComponent},
 
       {path: 'asigPedido', component: AsignacionComponent},
-      {path: 'tablaPedidos', component: TablaPedidosComponent},
+      {path: 'tablaPedidos', component: ListpedidosComponent},
 
-      {path: 'misPedidos', component: MisPedidosComponent},
+      {path: 'misPedidos', component: MispedidosComponent},
       {path: 'carrito', component: CarritoComponent},
       {path: 'inicio', component: InicioSesionComponent},
 
+      {path: 'rVentas', component: RVentasPorClienteComponent},
+      {path: 'pagar', component: PagarComponent},
+      {path: 'rConsolidado', component: RConsolidadoVentasComponent},
+
       /**rutas para redireccion a la pagina principal o a la pagina 404 de error */
       {path: '', redirectTo: '/empleados', pathMatch: 'full'},
-      {path: '**', component: PageNotFoundComponent}
+      //{path: '**', component: PageNotFoundComponent}
     ]),
   ],
   providers: [SharedService,AuthenticationService],

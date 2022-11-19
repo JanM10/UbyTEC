@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./updatecomercio.component.css">
+</head>
+<body>
+    <main>
+        <div class="contenedor__todo">
+            <!--Division de clase para el regstro de usuarios-->
+            <div class="contenedor__user-register">
+                <!--Formulario para el registro de usuarios-->
+                <form id="formRegistro" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" class="formulario__registro" autocomplete="off">
+                    <h2>ACTUALIZACIÓN DE TIPOS DE COMERCIOS</h2>
+                    <h6>Seleccione el comercio a actualizar:</h6>
+                    <select name="sucGerente" formControlName="idGer">
+                        <option *ngFor="let ger of EmpleadoList" [value]="ger.id">
+                            {{ger.nombre}}
+                        </option>
+                    </select>
+                    <input #Nombre type="text" placeholder="Nuevo Nombre" formControlName="nombre">
+                    <button class="button" type="submit">Actualizar Tipo de Comercio</button>
+                </form>
+                <!--Crear una tabla en este nivel-->
+            </div>
+            <div>
+                <!--Espaciadores-->
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

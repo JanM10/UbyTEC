@@ -3,10 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false, 
-  endpoints: {
-    shared: 'https://localhost:7065',
-  }
+  production: false
 };
 
 /*

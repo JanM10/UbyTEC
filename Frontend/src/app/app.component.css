@@ -1,7 +1,3 @@
-
-/* ############################################################################################## */
-
-
 /*Para la barra superior donde se detalla el nombre de la empresa*/
 .barra {
     background: #000000;
@@ -38,4 +34,3 @@
 .desplegable{
     position:relative;
 }
-

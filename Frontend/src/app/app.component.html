@@ -17,7 +17,18 @@
                 <h1 style="color: white;">UbyTEC</h1>
             </div>
             <div class="col-4 text-centre barra">
-                <h2 style="color: white;">¡BIENVENIDO!</h2>
+                <div id="welcomeTitle">
+                    <h2 style="color: white;">¡BIENVENIDO!</h2>
+                </div>
+                <div id="adminTitle" hidden>
+                    <h2 style="color: white;">ADMINISTRADOR</h2>
+                </div>
+                <div id="clienTitle" hidden>
+                    <h2 style="color: white;">CLIENTE</h2>
+                </div>
+                <div id="afiTitle" hidden>
+                    <h2 id="afiTitle" style="color: white;">AFILIADO</h2>
+                </div>
             </div>            
         </div>
     </div>
@@ -54,12 +65,12 @@
                     </div>
                 </div>
                 <div class="desplegable">
-                    <button type="button" class="m-1 btn btn-primary" id="emp" data-bs-toggle="dropdown" aria-expanded="false">Comercios</button>
+                    <button type="button" class="m-1 btn btn-primary" id="emp" data-bs-toggle="dropdown" aria-expanded="false">Tipos de Comercio</button>
                     <div class="links">
-                        <a routerLink="addCom">Agregar Comercio</a>
-                        <a routerLink="actCom">Actualizar Comercio</a>
-                        <a routerLink="elimCom">Eliminar Comercio</a>
-                        <a routerLink="tablaCom">Lista de Comercio</a>
+                        <a routerLink="addCom">Agregar Tipo de Comercio</a>
+                        <a routerLink="actCom">Actualizar Tipo de Comercio</a>
+                        <a routerLink="elimCom">Eliminar Tipo de Comercio</a>
+                        <a routerLink="tablaCom">Lista de Tipos de Comercio</a>
                     </div>
                 </div>
                 <div class="desplegable">
@@ -94,6 +105,13 @@
                     <div class="links">
                         <a routerLink="asigPedido">Asignación de pedidos</a>
                         <a routerLink="tablaPedidos">Lista de pedidos</a>
+                    </div>
+                </div>
+                <div class="desplegable">
+                    <button type="button" class="m-1 btn btn-primary" id="emp" data-bs-toggle="dropdown" aria-expanded="false">Reportes</button>
+                    <div class="links">
+                        <a routerLink="rVentas">Reporte de ventas por cliente</a>
+                        <a routerLink="rConsolidado">Reporte consolidado de ventas</a>
                     </div>
                 </div>
                 <li class="nav-item">

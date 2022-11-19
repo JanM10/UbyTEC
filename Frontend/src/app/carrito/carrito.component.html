@@ -1,1 +1,35 @@
-<p>carrito works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="tablaRegistro">
+        <h2>PRODUCTOS DEL CARRITO</h2>
+        <button>Actualizar Tabla</button><!-- agregar el identoficador-->
+        <!--Creacion de una tabla que muestra los datos de los clientes-->
+        <table class="table table-dark table-striped-columns">
+            <tr>
+                <th>Comercio</th>
+                <th>Productos</th>
+                <th>Cantidad</th>
+                <th>Opciones</th>
+            </tr>
+            <tr *ngFor="let dataItem of EmpleadoList"> <!--modificar esto de acuerdo con los headders de la base de datos-->
+                <td>{{dataItem.id}}</td>
+                <td>{{dataItem.productos}}</td>
+                <td>
+                    <button id="sumar">+</button> <!-- agregar el identoficador-->
+                    <button id="restar">-</button> <!-- agregar el identoficador-->
+                    <button id="quitar">Eliminar Producto</button>
+                </td>                
+            </tr>
+            <!--En esta parte es donde se agregan las demas filas--> 
+        </table>
+        <button>Ir a Pagar</button> <!-- agregar el identoficador -->
+    </div>
+</body>
+</html>

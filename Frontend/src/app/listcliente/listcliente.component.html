@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="tablaRegistro">
+        <h2>TABLA DE EMPLEADOS REGISTRADOS</h2>
+        <button>Actualizar Tabla</button>
+        <!--Creacion de una tabla que muestra los datos de los clientes-->
+        <table class="table table-dark table-striped-columns">
+            <tr>
+                <th>Nombre</th>
+                <th>Primer Apellido</th>
+                <th>Segundo Apellido</th>
+                <th>Cédula</th>
+                <th>Provincia</th>
+                <th>Canton</th>
+                <th>Distrito</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Teléfono</th>
+                <th>Usuario</th>
+                <th>Contraseña</th>
+            </tr>
+            <tr *ngFor="let dataItem of EmpleadoList">modificar esto de acuerdo con los headders de la base de datos--
+                <td>{{dataItem.nombre}}</td>
+                <td>{{dataItem.apellido1}}</td>
+                <td>{{dataItem.apellido2}}</td>
+                <td>{{dataItem.cedula}}</td>
+                <td>{{dataItem.provincia}}</td>
+                <td>{{dataItem.canton}}</td>
+                <td>{{dataItem.distrito}}</td>
+                <td>{{dataItem.birth}}</td>
+                <td>{{dataItem.tel}}</td>
+                <td>{{dataItem.usuario}}</td>
+                <td>{{dataItem.pass}}</td>
+            </tr>
+            <!--En esta parte es donmde se agregan las demas filas--> 
+        </table>
+    </div>
+    
+</body>
+</html>

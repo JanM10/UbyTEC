@@ -9,12 +9,16 @@ import { AuthenticationService } from './authentication.service';
 export class AppComponent implements OnInit{
 
   constructor(private auth:AuthenticationService, private render2:Renderer2){ }
-  title = 'DetailTEC';
+  title = 'UbyTEC';
   isClient = false;
   public arrAuth:any = [];
   hidden = false;
 
   ngOnInit(): void {
+    const titAdm = document.getElementById("emp");
+    const titCli = document.getElementById('clienTitle');
+    const titAfi = document.getElementById('afiTitle');
+
     // ver si puedo hacer que se esconda el divisor donde estan lo botones al momento de iniciar sesion
     /*const sucBtn = document.getElementById('suc');
     sucBtn.style.visibility = 'hidden';
@@ -51,7 +55,7 @@ export class AppComponent implements OnInit{
   }
   activarBotonesCliente(): void{
     // activar los botones del cliente
-    const sucBtn = document.getElementById('client');
+    /*const sucBtn = document.getElementById('client');
     sucBtn.style.visibility = 'visible';
     sucBtn.removeAttribute('disabled');
 
@@ -61,10 +65,10 @@ export class AppComponent implements OnInit{
 
     const inicioBtn = document.getElementById('inicio');
     inicioBtn.style.visibility = 'visible';
-    inicioBtn.removeAttribute('disabled');
+    inicioBtn.removeAttribute('disabled');*/
   }
   activarBotonesAdmin(): void{
-    // activar los botones del administrador
+    /* activar los botones del administrador
     const sucBtn = document.getElementById('suc');
     sucBtn.style.visibility = 'visible';
     sucBtn.removeAttribute('disabled');
@@ -107,6 +111,6 @@ export class AppComponent implements OnInit{
 
     const inicioBtn = document.getElementById('inicio');
     inicioBtn.style.visibility = 'visible';
-    inicioBtn.removeAttribute('disabled');
+    inicioBtn.removeAttribute('disabled');*/
   }
 }

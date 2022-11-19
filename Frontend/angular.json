@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "DetailTEC": {
+    "UbyTEC": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/detail-tec",
+            "outputPath": "dist/uby-tec",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "DetailTEC:build:production"
+              "browserTarget": "UbyTEC:build:production"
             },
             "development": {
-              "browserTarget": "DetailTEC:build:development"
+              "browserTarget": "UbyTEC:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "DetailTEC:build"
+            "browserTarget": "UbyTEC:build"
           }
         },
         "test": {

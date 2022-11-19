@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./updateproduct.component.css">
+</head>
+<body>
+    <main>
+        <div class="contenedor__todo">
+            <!--Division de clase para el regstro de usuarios-->
+            <div class="contenedor__user-register">
+                <!--Formulario para el registro de usuarios-->
+                <form id="formRegistro" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" class="formulario__registro" autocomplete="off">
+                    <h2>ACTUALIZACIÓN DE PRODUCTOS</h2>
+                    <h6>Seleccione el producto a actualizar:</h6>
+                    <select name="sucGerente" formControlName="idGer">
+                        <option *ngFor="let ger of EmpleadoList" [value]="ger.id">
+                            {{ger.nombre}}
+                        </option>
+                    </select>
+                    <input #provincia type="text" placeholder="Categoría" formControlName="categoria">
+                    <input #canton type="text" placeholder="Precio" formControlName="precio">
+                    <h6>Seleccione una imagen del producto:</h6>
+                    <input #foto (change)="CargarImagen($event)" type="file" name="foto" id="foto" formControlName="foto">
+                    <button class="button" type="submit">Actualizar Producto</button>
+                </form>
+                <!--Crear una tabla en este nivel-->
+            </div>
+            <div>
+                <!--Espaciadores-->
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

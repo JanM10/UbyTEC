@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./updateadmin.component.css">
+</head>
+<body>
+    <main>
+        <div class="contenedor__todo">
+            <!--Division de clase para el regstro de usuarios-->
+            <div class="contenedor__user-register">
+                <!--Formulario para el registro de usuarios-->
+                <form id="formRegistro" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" class="formulario__registro" autocomplete="off">
+                    <h2>ACTUALIZACIÓN DE ADMINISTRADORES</h2>
+                    <h6>Seleccione el administrador a actualizar:</h6>
+                    <select name="sucGerente" formControlName="idGer">
+                        <option *ngFor="let ger of EmpleadoList" [value]="ger.id">
+                            {{ger.nombre}}
+                        </option>
+                    </select>
+                    <input #provincia type="text" placeholder="Provincia" formControlName="provincia">
+                    <input #canton type="text" placeholder="Cantón" formControlName="canton">
+                    <input #distrito type="text" placeholder="Distrito" formControlName="distrito">
+                    <input #tel1 type="number" placeholder="Teléfono 1" formControlName="tel1">
+                    <input #tel2 type="number" placeholder="Teléfono 2" formControlName="tel2">
+                    <input #user type="email" placeholder="Correo" formControlName="email">
+                    <input #user type="text" placeholder="Usiario" formControlName="user">
+                    <input #pass type="password" placeholder="Contraseña" formControlName="pass">
+                    <button class="button" type="submit">Actualizar Administrador</button>
+                </form>
+                <!--Crear una tabla en este nivel-->
+            </div>
+            <div>
+                <!--Espaciadores-->
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
