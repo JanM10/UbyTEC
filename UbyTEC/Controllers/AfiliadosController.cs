@@ -15,14 +15,14 @@ namespace UbyTEC.Controllers
         }
 
         // GET: Se muestran los datos obtenidos 
-        [HttpGet]
+        [HttpGet("Get")]
         public async Task<ActionResult<List<Afiliados>>> Get()
         {
             return Ok(await _context.Afiliados.ToListAsync());
         }
 
         // GET: Se muestran los datos obtenidos por ID 
-        [HttpGet("{Cedula_Juridica}")]
+        [HttpGet("Get_Cedula_Juridica")]
         public async Task<ActionResult<List<Afiliados>>> Get(int cedula_juridica)
         {
             var dbAfiliados = await _context.Afiliados.FindAsync(cedula_juridica);
@@ -34,7 +34,7 @@ namespace UbyTEC.Controllers
         }
 
         // POST: Se guardan los datos
-        [HttpPost]
+        [HttpPost("Post")]
         public async Task<ActionResult<List<Afiliados>>> Post(Afiliados afiliado)
         {
             _context.Afiliados.Add(afiliado);
@@ -43,7 +43,7 @@ namespace UbyTEC.Controllers
         }
 
         // PUT: Se actualiza los datos
-        [HttpPut]
+        [HttpPut("Edit")]
         public async Task<ActionResult<List<Afiliados>>> Put(Afiliados request)
         {
             var dbAfiliados = await _context.Afiliados.FindAsync(request.Cedula_Juridica);
@@ -62,6 +62,8 @@ namespace UbyTEC.Controllers
             dbAfiliados.Correo = request.Correo;
             dbAfiliados.Sinpe = request.Sinpe;
             dbAfiliados.Administrador = request.Administrador;
+            dbAfiliados.Estado = request.Estado;
+            dbAfiliados.Comentario = request.Comentario;
 
             await _context.SaveChangesAsync();
 
@@ -69,7 +71,7 @@ namespace UbyTEC.Controllers
         }
 
         // DELETE: se elimina un dato
-        [HttpDelete("{Cedula_Juridica}")]
+        [HttpDelete("Delete_Cedula_Juridica")]
         public async Task<ActionResult<List<Afiliados>>> Delete(int cedula_juridica)
         {
             var dbAfiliados = await _context.Afiliados.FindAsync(cedula_juridica);

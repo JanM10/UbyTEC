@@ -16,14 +16,14 @@ namespace UbyTEC.Controllers
         }
 
         // GET: Se muestran los datos obtenidos 
-        [HttpGet]
+        [HttpGet("Get")]
         public async Task<ActionResult<List<Productos>>> Get()
         {
             return Ok(await _context.Productos.ToListAsync());
         }
 
         // GET: Se muestran los datos obtenidos por ID 
-        [HttpGet("{Id_Producto}")]
+        [HttpGet("Get_Id_Producto")]
         public async Task<ActionResult<List<Productos>>> Get(int id_producto)
         {
             var dbProductos = await _context.Productos.FindAsync(id_producto);
@@ -35,7 +35,7 @@ namespace UbyTEC.Controllers
         }
 
         // POST: Se guardan los datos
-        [HttpPost]
+        [HttpPost("Post")]
         public async Task<ActionResult<List<Productos>>> Post(Productos id_producto)
         {
             _context.Productos.Add(id_producto);
@@ -44,7 +44,7 @@ namespace UbyTEC.Controllers
         }
 
         // PUT: Se actualiza los datos
-        [HttpPut]
+        [HttpPut("Edit")]
         public async Task<ActionResult<List<Productos>>> Put(Productos request)
         {
             var dbProductos = await _context.Productos.FindAsync(request.Id_Producto);
@@ -64,7 +64,7 @@ namespace UbyTEC.Controllers
         }
 
         // DELETE: se elimina un dato
-        [HttpDelete("{Id_Producto}")]
+        [HttpDelete("Delete_Id_Producto")]
         public async Task<ActionResult<List<Productos>>> Delete(int id_producto)
         {
             var dbProductos = await _context.Productos.FindAsync(id_producto);

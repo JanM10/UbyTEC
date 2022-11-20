@@ -16,14 +16,14 @@ namespace UbyTEC.Controllers
         }
 
         // GET: Se muestran los datos obtenidos 
-        [HttpGet]
+        [HttpGet("Get")]
         public async Task<ActionResult<List<AdministradorComercio>>> Get()
         {
             return Ok(await _context.AdministradorComercio.ToListAsync());
         }
 
         // GET: Se muestran los datos obtenidos por ID 
-        [HttpGet("{Id_Admin}")]
+        [HttpGet("Get_Id_Admin")]
         public async Task<ActionResult<List<AdministradorComercio>>> Get(int id_admin)
         {
             var dbAdminComercio = await _context.AdministradorComercio.FindAsync(id_admin);
@@ -35,7 +35,7 @@ namespace UbyTEC.Controllers
         }
 
         // POST: Se guardan los datos
-        [HttpPost]
+        [HttpPost("Post")]
         public async Task<ActionResult<List<AdministradorComercio>>> Post(AdministradorComercio empleados)
         {
             _context.AdministradorComercio.Add(empleados);
@@ -44,7 +44,7 @@ namespace UbyTEC.Controllers
         }
 
         // PUT: Se actualiza los datos
-        [HttpPut]
+        [HttpPut("Edit")]
         public async Task<ActionResult<List<AdministradorComercio>>> Put(AdministradorComercio request)
         {
             var dbAdminComercio = await _context.AdministradorComercio.FindAsync(request.Id_Admin);
@@ -72,7 +72,7 @@ namespace UbyTEC.Controllers
         }
 
         // DELETE: se elimina un dato
-        [HttpDelete("{Id_Admin}")]
+        [HttpDelete("Delete_Id_Admin")]
         public async Task<ActionResult<List<AdministradorComercio>>> Delete(int id_admin)
         {
             var dbAdminComercio = await _context.AdministradorComercio.FindAsync(id_admin);

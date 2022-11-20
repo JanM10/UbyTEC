@@ -16,14 +16,14 @@ namespace UbyTEC.Controllers
         }
 
         // GET: Se muestran los datos obtenidos 
-        [HttpGet]
+        [HttpGet("Get")]
         public async Task<ActionResult<List<Clientes>>> Get()
         {
             return Ok(await _context.Clientes.ToListAsync());
         }
 
         // GET: Se muestran los datos obtenidos por ID 
-        [HttpGet("{Cedula}")]
+        [HttpGet("Get_Cedula")]
         public async Task<ActionResult<List<Clientes>>> Get(int cedula)
         {
             var dbClientes = await _context.Clientes.FindAsync(cedula);
@@ -35,7 +35,7 @@ namespace UbyTEC.Controllers
         }
 
         // POST: Se guardan los datos
-        [HttpPost]
+        [HttpPost("Post")]
         public async Task<ActionResult<List<Clientes>>> Post(Clientes clientes)
         {
             _context.Clientes.Add(clientes);
@@ -44,7 +44,7 @@ namespace UbyTEC.Controllers
         }
 
         // PUT: Se actualiza los datos
-        [HttpPut]
+        [HttpPut("Edit")]
         public async Task<ActionResult<List<Clientes>>> Put(Clientes request)
         {
             var dbClientes = await _context.Clientes.FindAsync(request.Cedula);
@@ -70,7 +70,7 @@ namespace UbyTEC.Controllers
         }
 
         // DELETE: se elimina un dato
-        [HttpDelete("{Cedula}")]
+        [HttpDelete("Delete_Cedula")]
         public async Task<ActionResult<List<Clientes>>> Delete(int cedula)
         {
             var dbClientes = await _context.Clientes.FindAsync(cedula);

@@ -16,14 +16,14 @@ namespace UbyTEC.Controllers
         }
 
         // GET: Se muestran los datos obtenidos 
-        [HttpGet]
+        [HttpGet("Get")]
         public async Task<ActionResult<List<TiposComercio>>> Get()
         {
             return Ok(await _context.TiposComercio.ToListAsync());
         }
 
         // GET: Se muestran los datos obtenidos por ID 
-        [HttpGet("{Id_Comercio}")]
+        [HttpGet("Get_Id_Comercio}")]
         public async Task<ActionResult<List<TiposComercio>>> Get(int id_comercio)
         {
             var dbTipoComercio = await _context.TiposComercio.FindAsync(id_comercio);
@@ -44,7 +44,7 @@ namespace UbyTEC.Controllers
         }
 
         // PUT: Se actualiza los datos
-        [HttpPut]
+        [HttpPut("Edit")]
         public async Task<ActionResult<List<TiposComercio>>> Put(TiposComercio request)
         {
             var dbTipoComercio = await _context.TiposComercio.FindAsync(request.Id_Comercio);
@@ -54,7 +54,6 @@ namespace UbyTEC.Controllers
             }
 
             dbTipoComercio.Nombre_Comercio = request.Nombre_Comercio;
-            dbTipoComercio.Tipo_Comercio = request.Tipo_Comercio;
 
             await _context.SaveChangesAsync();
 
@@ -62,7 +61,7 @@ namespace UbyTEC.Controllers
         }
 
         // DELETE: se elimina un dato
-        [HttpDelete("{Id_Comercio}")]
+        [HttpDelete("Delete_Id_Comercio")]
         public async Task<ActionResult<List<TiposComercio>>> Delete(int id_comercio)
         {
             var dbTipoComercio = await _context.TiposComercio.FindAsync(id_comercio);

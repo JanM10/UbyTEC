@@ -16,14 +16,14 @@ namespace UbyTEC.Controllers
         }
 
         // GET: Se muestran los datos obtenidos 
-        [HttpGet]
+        [HttpGet("Get")]
         public async Task<ActionResult<List<Repartidores>>> Get()
         {
             return Ok(await _context.Repartidores.ToListAsync());
         }
 
         // GET: Se muestran los datos obtenidos por ID 
-        [HttpGet("{idRepartidor}")]
+        [HttpGet("Get_idRepartidor")]
         public async Task<ActionResult<List<Repartidores>>> Get(int idRepartidor)
         {
             var dbRepartidores = await _context.Repartidores.FindAsync(idRepartidor);
@@ -35,7 +35,7 @@ namespace UbyTEC.Controllers
         }
 
         // POST: Se guardan los datos
-        [HttpPost]
+        [HttpPost("Post")]
         public async Task<ActionResult<List<Repartidores>>> Post(Repartidores repartidores)
         {
             _context.Repartidores.Add(repartidores);
@@ -44,7 +44,7 @@ namespace UbyTEC.Controllers
         }
 
         // PUT: Se actualiza los datos
-        [HttpPut]
+        [HttpPut("Edit")]
         public async Task<ActionResult<List<Repartidores>>> Put(Repartidores request)
         {
             var dbRepartidores = await _context.Repartidores.FindAsync(request.idRepartidor);
@@ -71,7 +71,7 @@ namespace UbyTEC.Controllers
         }
 
         // DELETE: se elimina un dato
-        [HttpDelete("{idRepartidor}")]
+        [HttpDelete("Delete_idRepartidor")]
         public async Task<ActionResult<List<Repartidores>>> Delete(int idRepartidor)
         {
             var dbRepartidores = await _context.Repartidores.FindAsync(idRepartidor);

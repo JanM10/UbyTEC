@@ -16,6 +16,5 @@ namespace UbyTEC.Models
         public int Telefono2 { get; set; }
         public string Usuario { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
-        public string Rol { get; set; } = string.Empty;
     }
 }
