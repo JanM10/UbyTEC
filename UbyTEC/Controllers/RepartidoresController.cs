@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Npgsql;
 using UbyTEC.Models;
 
 namespace UbyTEC.Controllers
@@ -64,8 +65,28 @@ namespace UbyTEC.Controllers
             dbRepartidores.Correo = request.Correo;
             dbRepartidores.Usuario = request.Usuario;
             dbRepartidores.Password = request.Password;
+            dbRepartidores.Estado = request.Estado;
 
             await _context.SaveChangesAsync();
+
+            return Ok(await _context.Repartidores.ToListAsync());
+        }
+
+        //---------------------------------------
+        [HttpPut("TiempoOrden")]
+        public async Task<ActionResult<List<Repartidores>>> TiempoOrden(Repartidores request)
+        {
+            var dbRepartidores = await _context.Repartidores.FindAsync(request.idRepartidor);
+            if (dbRepartidores == null)
+            {
+                return BadRequest("Repartidor no encontrado");
+            }
+
+            dbRepartidores.Estado = "En camino";
+
+            await _context.SaveChangesAsync();
+
+            await State(request);
 
             return Ok(await _context.Repartidores.ToListAsync());
         }
@@ -81,6 +102,21 @@ namespace UbyTEC.Controllers
             }
             _context.Repartidores.Remove(dbRepartidores);
             await _context.SaveChangesAsync();
+
+            return Ok(await _context.Repartidores.ToListAsync());
+        }
+
+        [HttpPut("State")]
+        public async Task<ActionResult<List<Repartidores>>> State(Repartidores request)
+        {
+            var dbRepartidores = await _context.Repartidores.FindAsync(request.idRepartidor);
+            await Task.Delay(10000).ContinueWith(async (task) =>
+            {
+                dbRepartidores.Estado = "Disponible";
+                //NpgsqlCommand
+
+                await _context.SaveChangesAsync();
+            });
 
             return Ok(await _context.Repartidores.ToListAsync());
         }
