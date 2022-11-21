@@ -35,7 +35,7 @@ namespace UbyTEC.Controllers
         }
 
         // POST: Se guardan los datos
-        [HttpPost]
+        [HttpPost("Post")]
         public async Task<ActionResult<List<TiposComercio>>> Post(TiposComercio tipoComercio)
         {
             _context.TiposComercio.Add(tipoComercio);

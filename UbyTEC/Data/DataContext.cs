@@ -22,5 +22,7 @@ namespace UbyTEC.Data
         public DbSet<AdministradorComercio> AdministradorComercio { get; set; }
 
         public DbSet<Pedidos> Pedidos { get; set; }
+
+        public DbSet<ReportesAfiliados> ReportesAfiliados { get; set; }
     }
 }
