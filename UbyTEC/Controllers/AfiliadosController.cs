@@ -71,7 +71,7 @@ namespace UbyTEC.Controllers
         }
 
         // DELETE: se elimina un dato
-        [HttpDelete("Delete_Cedula_Juridica")]
+        [HttpDelete("Delete")]
         public async Task<ActionResult<List<Afiliados>>> Delete(int cedula_juridica)
         {
             var dbAfiliados = await _context.Afiliados.FindAsync(cedula_juridica);

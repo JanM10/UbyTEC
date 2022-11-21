@@ -72,7 +72,7 @@ namespace UbyTEC.Controllers
         }
 
         // DELETE: se elimina un dato
-        [HttpDelete("Delete_Id_Admin")]
+        [HttpDelete("Delete")]
         public async Task<ActionResult<List<AdministradorComercio>>> Delete(int id_admin)
         {
             var dbAdminComercio = await _context.AdministradorComercio.FindAsync(id_admin);

@@ -71,7 +71,7 @@ namespace UbyTEC.Controllers
         }
 
         // DELETE: se elimina un dato
-        [HttpDelete("Delete_idRepartidor")]
+        [HttpDelete("Delete")]
         public async Task<ActionResult<List<Repartidores>>> Delete(int idRepartidor)
         {
             var dbRepartidores = await _context.Repartidores.FindAsync(idRepartidor);
