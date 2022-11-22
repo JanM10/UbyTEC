@@ -4,22 +4,22 @@ using UbyTEC.Models;
 
 namespace UbyTEC.Controllers
 {
-    [Route("api/ReportesAfiliados")]
+    [Route("api/ReportesClientes")]
     [ApiController]
-    public class ReportesAfiliadosController : ControllerBase
+    public class ReportesClientesController : ControllerBase
     {
         private readonly DataContext _context;
 
-        public ReportesAfiliadosController(DataContext context)
+        public ReportesClientesController(DataContext context)
         {
             _context = context;
         }
 
         // GET: Se muestran los datos obtenidos 
         [HttpGet("Get")]
-        public async Task<ActionResult<List<ReportesAfiliados>>> Get()
+        public async Task<ActionResult<List<ReportesClientes>>> Get()
         {
-            return Ok(await _context.Vista_ReporteVentasAfiliado.ToListAsync());
+            return Ok(await _context.Vista_ReporteVentasCliente.ToListAsync());
         }
     }
 }

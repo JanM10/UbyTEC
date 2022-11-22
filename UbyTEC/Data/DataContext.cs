@@ -23,6 +23,8 @@ namespace UbyTEC.Data
 
         public DbSet<Pedidos> Pedidos { get; set; }
 
-        public DbSet<ReportesAfiliados> ReportesAfiliados { get; set; }
+        public DbSet<ReportesAfiliados> Vista_ReporteVentasAfiliado { get; set; }
+
+        public DbSet<ReportesClientes> Vista_ReporteVentasCliente { get; set; }
     }
 }
