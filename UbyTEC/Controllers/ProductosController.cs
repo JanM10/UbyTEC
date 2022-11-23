@@ -56,7 +56,8 @@ namespace UbyTEC.Controllers
             dbProductos.Nombre_Producto = request.Nombre_Producto;
             dbProductos.Categoria = request.Categoria;
             dbProductos.Precio = request.Precio;
-            dbProductos.Fotos = request.Fotos; //COMO SE AGREGAN FOTOS??
+            dbProductos.Fotos = request.Fotos; 
+            dbProductos.Id_Afiliado = request.Id_Afiliado;
 
             await _context.SaveChangesAsync();
 

@@ -9,6 +9,7 @@ namespace UbyTEC.Models
         public string Nombre_Producto { get; set; } = string.Empty;
         public string Categoria { get; set; } = string.Empty;
         public int Precio { get; set; }
-        public string Fotos { get; set; } = string.Empty; //COMO SE AGREGAN FOTOS??
+        public string Fotos { get; set; } = string.Empty; 
+        public int Id_Afiliado { get; set; }
     }
 }
