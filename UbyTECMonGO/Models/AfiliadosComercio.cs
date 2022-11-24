@@ -3,16 +3,14 @@
 namespace UbyTECMonGO.Models
 {
     [Serializable, BsonIgnoreExtraElements]
-    public class AdministradorComercio
+    public class AfiliadosComercio
     {
         [BsonId, BsonElement("_id"), BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
-        public int Id_Admin { get; set; }
-        [BsonElement("_nombre"), BsonRepresentation(MongoDB.Bson.BsonType.String)]
-        public string Nombre { get; set; } = string.Empty;
-        [BsonElement("_apellido1"), BsonRepresentation(MongoDB.Bson.BsonType.String)]
-        public string Apellido1 { get; set; } = string.Empty;
-        [BsonElement("_apellido2"), BsonRepresentation(MongoDB.Bson.BsonType.String)]
-        public string Apellido2 { get; set; } = string.Empty;
+        public int Cedula_Juridica { get; set; }
+        [BsonElement("_nombreComercio"), BsonRepresentation(MongoDB.Bson.BsonType.String)]
+        public string Nombre_Comercio { get; set; } = string.Empty;
+        [BsonElement("_tipoComercio"), BsonRepresentation(MongoDB.Bson.BsonType.Int32)]
+        public int Tipo_Comercio { get; set; }
         [BsonElement("_provincia"), BsonRepresentation(MongoDB.Bson.BsonType.String)]
         public string Provincia { get; set; } = string.Empty;
         [BsonElement("_canton"), BsonRepresentation(MongoDB.Bson.BsonType.String)]
@@ -25,9 +23,13 @@ namespace UbyTECMonGO.Models
         public int Telefono2 { get; set; }
         [BsonElement("_correo"), BsonRepresentation(MongoDB.Bson.BsonType.String)]
         public string Correo { get; set; } = string.Empty;
-        [BsonElement("_usuario"), BsonRepresentation(MongoDB.Bson.BsonType.String)]
-        public string Usuario { get; set; } = string.Empty;
-        [BsonElement("_password"), BsonRepresentation(MongoDB.Bson.BsonType.String)]
-        public string Password { get; set; } = string.Empty;
+        [BsonElement("_sinpe"), BsonRepresentation(MongoDB.Bson.BsonType.Int32)]
+        public int Sinpe { get; set; }
+        [BsonElement("_administrador"), BsonRepresentation(MongoDB.Bson.BsonType.Int32)]
+        public int Administrador { get; set; } //Es int pq se conecta con id_admin con la tabla AdminComercio
+        [BsonElement("_estado"), BsonRepresentation(MongoDB.Bson.BsonType.Boolean)]
+        public bool Estado { get; set; }
+        [BsonElement("_comentario"), BsonRepresentation(MongoDB.Bson.BsonType.String)]
+        public string Comentario { get; set; } = string.Empty;
     }
 }
