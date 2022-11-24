@@ -1,6 +1,6 @@
 ﻿namespace UbyTECMonGO.Models
 {
-    public class Class
+    public class Clientes
     {
     }
 }
