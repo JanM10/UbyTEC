@@ -26,5 +26,7 @@ namespace UbyTEC.Data
         public DbSet<ReportesAfiliados> Vista_ReporteVentasAfiliado { get; set; }
 
         public DbSet<ReportesClientes> Vista_ReporteVentasCliente { get; set; }
+
+        public DbSet<Top10Pedidos> Vista_UltimasVentasPorUsuario { get; set; }
     }
 }
