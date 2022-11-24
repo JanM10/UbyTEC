@@ -73,9 +73,9 @@ namespace UbyTEC.Controllers
 
         // DELETE: se elimina un dato
         [HttpDelete("Delete")]
-        public async Task<ActionResult<List<AdministradorComercio>>> Delete(int id_admin)
+        public async Task<ActionResult<List<AdministradorComercio>>> Delete(AdministradorComercio request)
         {
-            var dbAdminComercio = await _context.AdministradorComercio.FindAsync(id_admin);
+            var dbAdminComercio = await _context.AdministradorComercio.FindAsync(request.Id_Admin);
             if (dbAdminComercio == null)
             {
                 return BadRequest("Administrador no encontrado");

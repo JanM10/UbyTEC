@@ -5,7 +5,7 @@ namespace UbyTEC.Models
     public class AdministradorComercio
     {
         [Key]
-        public int Id_Admin { get; set; } //Ese se conecta con Administrador en la tabla Afiliado
+        public int Id_Admin { get; set; } 
         public string Nombre { get; set; } = string.Empty;
         public string Apellido1 { get; set; } = string.Empty;
         public string Apellido2 { get; set; } = string.Empty;

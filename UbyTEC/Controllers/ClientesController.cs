@@ -71,9 +71,9 @@ namespace UbyTEC.Controllers
 
         // DELETE: se elimina un dato
         [HttpDelete("Delete")]
-        public async Task<ActionResult<List<Clientes>>> Delete(int cedula)
+        public async Task<ActionResult<List<Clientes>>> Delete(Clientes request)
         {
-            var dbClientes = await _context.Clientes.FindAsync(cedula);
+            var dbClientes = await _context.Clientes.FindAsync(request.Cedula);
             if (dbClientes == null)
             {
                 return BadRequest("Cliente no encontrado");

@@ -66,9 +66,9 @@ namespace UbyTEC.Controllers
 
         // DELETE: se elimina un dato
         [HttpDelete("Delete")]
-        public async Task<ActionResult<List<Productos>>> Delete(int id_producto)
+        public async Task<ActionResult<List<Productos>>> Delete(Productos request)
         {
-            var dbProductos = await _context.Productos.FindAsync(id_producto);
+            var dbProductos = await _context.Productos.FindAsync(request.Id_Producto);
             if (dbProductos == null)
             {
                 return BadRequest("Producto no encontrado");

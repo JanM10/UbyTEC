@@ -12,5 +12,6 @@ namespace UbyTEC.Models
         public Double Monto_total { get; set; }
         public Double Monto_servicio { get; set; }
         public string? Estado { get; set; }
+        public string? Feedback { get; set; }
     }
 }

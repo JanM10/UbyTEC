@@ -74,9 +74,9 @@ namespace UbyTEC.Controllers
 
         // DELETE: se elimina un dato
         [HttpDelete("Delete")]
-        public async Task<ActionResult<List<Repartidores>>> Delete(int idRepartidor)
+        public async Task<ActionResult<List<Repartidores>>> Delete(Repartidores request)
         {
-            var dbRepartidores = await _context.Repartidores.FindAsync(idRepartidor);
+            var dbRepartidores = await _context.Repartidores.FindAsync(request.idRepartidor);
             if (dbRepartidores == null)
             {
                 return BadRequest("Repartidor no encontrado");
@@ -86,39 +86,5 @@ namespace UbyTEC.Controllers
 
             return Ok(await _context.Repartidores.ToListAsync());
         }
-
-/*        //---------------------------------------
-        [HttpPut("TiempoOrden")]
-        public async Task<ActionResult<List<Repartidores>>> TiempoOrden(Repartidores request)
-        {
-            var dbRepartidores = await _context.Repartidores.FindAsync(request.idRepartidor);
-            if (dbRepartidores == null)
-            {
-                return BadRequest("Repartidor no encontrado");
-            }
-
-            dbRepartidores.Estado = "No disponible";
-
-            await _context.SaveChangesAsync();
-
-            await State(request);
-
-            return Ok(await _context.Repartidores.ToListAsync());
-        }
-
-        [HttpPut("State")]
-        public async Task<ActionResult<List<Repartidores>>> State(Repartidores request)
-        {
-            var dbRepartidores = await _context.Repartidores.FindAsync(request.idRepartidor);
-            await Task.Delay(20000).ContinueWith(async (task) =>
-            {
-                dbRepartidores.Estado = "Disponible";
-
-
-                await _context.SaveChangesAsync();
-            });
-
-            return Ok(await _context.Repartidores.ToListAsync());
-        }*/
     }
 }

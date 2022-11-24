@@ -49,6 +49,7 @@ namespace UbyTEC.Controllers
         public async Task<ActionResult<List<Pedidos>>> Put(Pedidos request)
         {
             var dbPedidos = await _context.Pedidos.FindAsync(request.Id_pedido);
+
             if (dbPedidos == null)
             {
                 return BadRequest("Pedido no encontrado");
@@ -62,12 +63,23 @@ namespace UbyTEC.Controllers
             conn.Open();
 
             // Define a query returning a single row result set
-            NpgsqlCommand command = new NpgsqlCommand($"CALL \"AsignarPedidos\"({request.Afiliado})", conn);
+            NpgsqlCommand command = new NpgsqlCommand($"CALL \"AsignarPedidos\"({request.Afiliado},{request.Id_pedido})", conn);
             command.ExecuteReader();
+
+            //CREAR UNS SENTENCIA SQL QUE REGRESE EL idReprartidor 
 
             await Task.Delay(20000).ContinueWith(async (task) =>
             {
                 request.Estado = "Entregado";
+
+                // Connect to a PostgreSQL database
+                NpgsqlConnection conn2 = new NpgsqlConnection("Server=localhost;Database=UbyTEC;" +
+                    "Port=5432;User Id=postgres;Password=PostgreSQL123;");
+                conn2.Open();
+
+                // Define a query returning a single row result set
+                NpgsqlCommand command = new NpgsqlCommand($"CALL \"FinalizarPedidos\"({request.Id_pedido})", conn2);
+                command.ExecuteReader();
 
                 await _context.SaveChangesAsync();
             });
