@@ -5,7 +5,7 @@ using UbyTECMonGO.Models;
 
 namespace UbyTECMonGO.Controllers
 {
-    [Route("mongo/[controller]")]
+    [Route("mongo/AdministradorComercio")]
     [ApiController]
     public class AdministradorComercioController : ControllerBase
     {
